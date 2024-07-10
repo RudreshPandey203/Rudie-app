@@ -81,18 +81,18 @@ const FeaturedProject = () => {
               onHoverEnd={handleAnchorHoverEnd}
             >
               <ProjectInfo>
-                <h3>Featured Project</h3>
+                <h3>What I am brewing now?</h3>
                 <motion.div
                   initial={{ opacity: 0 }}
                   animate={controlsInfo}
                   transition={transition}
                   className="project-info"
                 >
-                  <h4>PEI Seafood</h4>
-                  <h4>2019</h4>
+                  <h4>My Club AI</h4>
+                  <h4>Buildspace season 5</h4>
                 </motion.div>
                 <ProjectTitle>
-                  NOT <br /> HUMBLE
+                  My <br /> Club AI
                   <span className="arrow">
                     <Arrow animate={controlsArrow} transition={transition} />
                   </span>

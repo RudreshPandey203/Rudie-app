@@ -6,7 +6,7 @@ import { useMenuContext } from '../../context/menu';
 import useCursorStyle from '../../hooks/useCursorStyle';
 import useStyledTheme from '../../hooks/useStyledTheme';
 import useMediaQuery from '../../hooks/useMediaQuery';
-import routesProjects from '../../utils/constants/routesProjects';
+import routes from '../../utils/constants/routes';
 import Arrow from '../Icons/Arrow';
 import {
   listVariants,
@@ -34,7 +34,7 @@ import {
   SocialMedia,
 } from './styles';
 
-const Menu = () => {
+const Menu2 = () => {
   const containerRef = React.useRef(null);
   const videoContainerRef = React.useRef(null);
   const [revealVideo, setRevealVideo] = React.useState(null);
@@ -96,8 +96,8 @@ const Menu = () => {
       {isMenuOpen && (
         <Backdrop onAnimationComplete={handleAnimationComplete}>
           <Container ref={containerRef}>
-            <Header>
-              <h3>Projects</h3>
+            <Header style={{ display: 'flex', flexDirection: 'row-reverse' }}>
+              <h3>Experience</h3>
               <CloseButton title="Close" />
             </Header>
             <Navigation>
@@ -108,7 +108,7 @@ const Menu = () => {
                 onHoverStart={() => setIsHovering(true)}
                 onHoverEnd={() => setIsHovering(false)}
               >
-                {routesProjects.map(route => (
+                {routes.map(route => (
                   <motion.li
                     key={route.id}
                     variants={listItemsVariants}
@@ -162,7 +162,8 @@ const Menu = () => {
               {isMobile && (
                 <Address>
                   <FooterText>
-                    Chennai<br /> India
+                    Chennai
+                    <br /> India
                   </FooterText>
                 </Address>
               )}
@@ -177,7 +178,7 @@ const Menu = () => {
                 initial="show"
                 animate={isHovering ? 'hidden' : 'show'}
               />
-              {routesProjects.map(route => (
+              {routes.map(route => (
                 <Video
                   key={route.id}
                   src={`/videos/${route.video}`}
@@ -197,4 +198,4 @@ const Menu = () => {
   );
 };
 
-export default React.memo(Menu);
+export default React.memo(Menu2);

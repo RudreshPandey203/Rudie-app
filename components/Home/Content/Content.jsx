@@ -7,12 +7,10 @@ const Content = () => {
     <AnimateOnScreen>
       <ContentSection>
         <TextWrapper>
-          <Text>
-            Great stories don’t just happen—
-            <br />
-            they need to be uncovered. And we dig deep to discover the great
-            stories that lie just below the surface. Dirt under our fingernails
-            and all.
+        <Text>
+            Coding is a craft.
+            <br /><br/>
+            I started with Java, did a lot of Web Dev, built models, curated AI tools, and right now striving to get better at DSA.
           </Text>
         </TextWrapper>
       </ContentSection>

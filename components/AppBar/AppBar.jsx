@@ -73,11 +73,14 @@ const AppBar = props => {
       {...rootProps}
     >
       <Container>
-        <Link href="/" passHref>
+        {/* <Link href="/" passHref>
           <StyledLink title="Furrow">
             <Logo {...logoProps} />
           </StyledLink>
-        </Link>
+        </Link> */}
+        <MenuWrapper>
+          <MenuButton title="Experience" />
+        </MenuWrapper>
         <MenuWrapper>
           <MenuButton title="Projects" />
         </MenuWrapper>
