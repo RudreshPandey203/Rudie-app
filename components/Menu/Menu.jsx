@@ -179,7 +179,8 @@ const Menu = () => {
                         ease: transition.ease,
                       }}
                     >
-                      <NextLink href={route.path}>
+                      <Link href={route.path}>
+                        
                         <Link
                           key={`${route.id}_${isMobile}`}
                           name={route.id}
@@ -198,7 +199,7 @@ const Menu = () => {
                           {/* <br/>
                           <h4 style={{fontSize:'1rem',}}>{selected=='Experience'?`${route.role}`:''}</h4> */}
                         </Link>
-                      </NextLink>
+                      </Link>
                     </motion.li>
                   ),
                 )}

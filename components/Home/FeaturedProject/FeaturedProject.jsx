@@ -83,7 +83,7 @@ const FeaturedProject = () => {
               onHoverEnd={handleAnchorHoverEnd}
             >
               <ProjectInfo>
-                <h3>What I am brewing now?</h3>
+                <h3>am brewing now?</h3>
                 <motion.div
                   initial={{ opacity: 0 }}
                   animate={controlsInfo}
@@ -101,7 +101,7 @@ const FeaturedProject = () => {
                 </ProjectTitle>
               </ProjectInfo>
               <VideoPreview>
-                <video loop autoPlay muted src="videos/featured-video.mp4" />
+                <video loop autoPlay muted src="videos/main.mp4" />
               </VideoPreview>
             </ProjectAnchor>
           </Link>
