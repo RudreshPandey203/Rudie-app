@@ -5,7 +5,7 @@ import StickyCursor from '../StickyCursor';
 import { Button } from './styles';
 
 const MenuButton = ({ sticky = true, title = '', ...props }, ref) => {
-  const [, dispatch] = useMenuContext();
+  const [state, dispatch] = useMenuContext();
   const { addCursorBorder, removeCursorBorder } = useCursorStyle();
 
   const handleOnToggle = React.useCallback(() => {

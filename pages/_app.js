@@ -10,7 +10,6 @@ import lightTheme from '../styles/themes/light';
 import AppBar from '../components/AppBar';
 import Cursor from '../components/Cursor';
 import Menu from '../components/Menu';
-import Menu2 from '../components/Menu2';
 
 const themes = {
   dark: darkTheme,

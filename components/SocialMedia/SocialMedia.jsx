@@ -1,13 +1,14 @@
 import React from 'react';
 import useCursorStyle from '../../hooks/useCursorStyle';
-import { Instagram, Facebook, Vimeo } from '../Icons';
+import {FaInstagram, FaLinkedinIn, FaTwitter, FaGithub } from 'react-icons/fa';
 import StickyCursor from '../StickyCursor';
 import { Container, Link } from './styles';
 
 const medias = [
-  { component: Instagram, url: 'https://www.instagram.com/furrowstudio/' },
-  { component: Facebook, url: 'https://www.facebook.com/furrowstudio/' },
-  { component: Vimeo, url: 'https://vimeo.com/furrow' },
+  { component: FaInstagram, url: 'https://www.instagram.com/rudreshpandey_' },
+  { component: FaLinkedinIn, url: 'https://www.linkedin.com/in/rudreshpandey-/' },
+  { component: FaTwitter, url: 'https://x.com/RudreshPandey_' },
+  { component: FaGithub, url: 'https://github.com/RudreshPandey203'},
 ];
 
 const SocialMedia = props => {
@@ -17,13 +18,14 @@ const SocialMedia = props => {
     <Container {...props}>
       {medias.map(({ component: Component, url }) => (
         <StickyCursor key={url}>
-          <Link
+          <Link 
+            style={{padding: '10px'}}
             target="_blank"
             href={url}
             onMouseEnter={addCursorBorder}
             onMouseLeave={removeCursorBorder}
           >
-            <Component />
+            <Component width="100px" height="100px"/>
           </Link>
         </StickyCursor>
       ))}

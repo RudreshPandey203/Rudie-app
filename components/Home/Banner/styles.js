@@ -33,10 +33,10 @@ export const VideoContainer = styled.div`
 
 export const BannerTitle = styled(motion.h1)`
   position: absolute;
-  bottom: -93px;
-  left: -20px;
-  font-size: 420px;
-  font-size: 26.25rem;
+  bottom: -43px;
+  left: -10px;
+  font-size: 320px;
+  font-size: 18rem;
   pointer-events: none;
   line-height: 0.6714285714;
 
@@ -47,19 +47,19 @@ export const BannerTitle = styled(motion.h1)`
 
   ${({ theme }) => theme.breakpoints.small`
     left: -10px;
-    bottom: -63px;
+    bottom: -23px;
     font-size: 280px;
-    font-size: 17.5rem;
+    font-size: 12rem;
     line-height: .6821428571;
   `};
 
   ${({ theme }) => theme.breakpoints.tablet`
     left: -6px;
-    bottom: -36px;
+    bottom: -10px;
     max-width: calc(100% + 6px);
     font-size: 160px;
-    font-size: 10rem;
+    font-size: 6rem;
     line-height: .68125;
-    overflow: hidden;
+    leading: none;
   `};
 `;

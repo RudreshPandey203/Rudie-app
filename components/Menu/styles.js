@@ -118,7 +118,7 @@ export const Navigation = styled.nav`
 
   ${({ theme }) => theme.breakpoints.small`
     position: absolute;
-    top: 94px;
+    top: 194px;
   `};
 `;
 

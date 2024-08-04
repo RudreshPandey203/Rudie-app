@@ -37,19 +37,14 @@ const About = () => {
       <ContentSection>
         <TextWrapper>
           <h2>
-            Furrow is an integrated, full-service creative studio offering video
-            production, creative development, and post-production services.
+          My workaholic tendencies often blur the line between dedication and an unhealthy lifestyle.
           </h2>
           <p>
-            Everybody’s got a story. And we don’t stop until we’ve uncovered
-            what makes yours worth telling. Whether it’s working directly with
-            you, an agency partner, or putting the finishing touches on
-            something special, we’re ready to dig in and get our hands dirty—are
-            you?
+            In my recent learning years, I have been exposed to alot of cool things. My hunger to build never lets me rest and I ain't stopping here, still left alot to learn and build. Apart from Dev and coding, I love playing chess, jamming sessions with my guitar and some savouring pizza.
           </p>
         </TextWrapper>
         <ServicesWrapper>
-          <h3>Services</h3>
+          <h3>Skills</h3>
           {items.map(([item, services], itemIndex) => (
             <React.Fragment key={item}>
               <AccordionToggle

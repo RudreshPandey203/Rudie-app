@@ -35,7 +35,7 @@ const Banner = () => {
     <BannerSection style={{ height: windowSize.height }}>
       <VideoContainer>
         <video
-          src="/videos/banner.mp4"
+          src="/videos/vvv.mp4"
           height="100%"
           width="100%"
           loop
@@ -57,8 +57,8 @@ const Banner = () => {
         initial="initial"
         animate="animate"
       >
-        <motion.span variants={itemTitleAnimation}>DIG</motion.span>
-        <motion.span variants={itemTitleAnimation}>DEEP</motion.span>
+        <motion.span variants={itemTitleAnimation}>COMMIT</motion.span>
+        <motion.span variants={itemTitleAnimation}>& PUSH</motion.span>
       </BannerTitle>
     </BannerSection>
   );

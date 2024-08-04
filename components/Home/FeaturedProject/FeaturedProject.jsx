@@ -16,6 +16,8 @@ import {
   MenuContainer,
   MenuButton,
 } from './styles';
+import colors from '../../../styles/colors';
+import { FaDownload } from 'react-icons/fa6';
 
 const transition = {
   duration: 0.45,
@@ -107,12 +109,44 @@ const FeaturedProject = () => {
       </AnimateOnScreen>
       <AnimateOnScreen>
         <MenuContainer>
-          <MenuButton
+          {/* <MenuButton
             sticky={false}
-            title="All Projects"
+            title="My Works"
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
-          />
+          /> */}
+          <Link href="/resume/ResumeRudresh.pdf" download={true}>
+            <div
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+              style={{
+                padding: '15px',
+                backgroundColor: `${colors.red}`,
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+                cursor: 'pointer',
+                borderRadius: '6px',
+              }}
+            >
+              <h4
+                style={{
+                  fontSize: '1.7rem',
+                  fontWeight: 'bold',
+                  alignItems: 'center',
+                  fontStyle: 'normal',
+                  lineHeight: '0.6',
+                  position:'relative',
+                  top:'5px',
+                  color: `${colors.white}`,
+                  paddingRight: '10px',
+                }}
+              >
+                Resume  
+              </h4>
+              <FaDownload style={{ fontSize: '1.5rem' }} />
+            </div>
+          </Link>
         </MenuContainer>
       </AnimateOnScreen>
     </ContentSection>

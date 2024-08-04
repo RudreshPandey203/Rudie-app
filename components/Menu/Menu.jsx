@@ -7,6 +7,7 @@ import useCursorStyle from '../../hooks/useCursorStyle';
 import useStyledTheme from '../../hooks/useStyledTheme';
 import useMediaQuery from '../../hooks/useMediaQuery';
 import routesProjects from '../../utils/constants/routesProjects';
+import routes from '../../utils/constants/routes';
 import Arrow from '../Icons/Arrow';
 import {
   listVariants,
@@ -91,13 +92,73 @@ const Menu = () => {
     };
   }, [isMenuOpen]);
 
+  const textVariants = {
+    initial: { y: 0, fontSize: '1rem' },
+    expanded: { y: 50, fontSize: '2rem' },
+  };
+
+  const [switched, setSwitched] = React.useState(false);
+
+  const handleSwitch2 = () => {
+    setSwitched(!switched);
+  };
+
+  const [selected, setSelected] = React.useState('Projects');
+
+  const handleSwitch = choice => {
+    setSelected(choice);
+  };
   return (
     <AnimatePresence onExitComplete={handleExitComplete}>
       {isMenuOpen && (
         <Backdrop onAnimationComplete={handleAnimationComplete}>
           <Container ref={containerRef}>
             <Header>
-              <h3>Projects</h3>
+              <div
+                style={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'space-between',
+                  height: '100px',
+                }}
+              >
+                <motion.h3
+                  style={{
+                    padding: '20px 0',
+                    fontWeight: 'bolder',
+                    textAlign: 'left',
+                    cursor: 'pointer',
+                    position: 'absolute',
+                    top: '100px',
+                  }}
+                  onClick={() => handleSwitch('Projects')}
+                  initial="initial"
+                  animate={selected === 'Projects' ? 'expanded' : 'initial'}
+                  variants={textVariants}
+                  transition={{ duration: 0.5 }}
+                  {...(selected === 'Experience' ? { onMouseEnter: addCursorBorder, onMouseLeave: removeCursorBorder } : {})}
+                >
+                  Projects
+                </motion.h3>
+                <motion.h3
+                  style={{
+                    padding: '20px 0',
+                    textAlign: 'left',
+                    cursor: 'pointer',
+                    fontWeight: 'bolder',
+                    position: 'absolute',
+                    top: '100px',
+                  }}
+                  onClick={() => handleSwitch('Experience')}
+                  initial="initial"
+                  animate={selected === 'Experience' ? 'expanded' : 'initial'}
+                  variants={textVariants}
+                  transition={{ duration: 0.5 }}
+                  {...(selected === 'Projects' ? { onMouseEnter: addCursorBorder, onMouseLeave: removeCursorBorder } : {})}
+                >
+                  Experience
+                </motion.h3>
+              </div>
               <CloseButton title="Close" />
             </Header>
             <Navigation>
@@ -108,64 +169,60 @@ const Menu = () => {
                 onHoverStart={() => setIsHovering(true)}
                 onHoverEnd={() => setIsHovering(false)}
               >
-                {routesProjects.map(route => (
-                  <motion.li
-                    key={route.id}
-                    variants={listItemsVariants}
-                    transition={{
-                      duration: 0.9,
-                      ease: transition.ease,
-                    }}
-                  >
-                    <NextLink href={route.path}>
-                      <Link
-                        key={`${route.id}_${isMobile}`}
-                        name={route.id}
-                        onHoverStart={handleHoverStart}
-                        onHoverEnd={handleHoverEnd}
-                        custom={{ isMobile, color: theme.text }}
-                        initial="initial"
-                        whileHover="hover"
-                        variants={linkVariants}
-                        transition={transition}
-                      >
-                        <ArrowContainer>
-                          <Arrow fillColor={theme.background} />
-                        </ArrowContainer>
-                        {route.title}
-                      </Link>
-                    </NextLink>
-                  </motion.li>
-                ))}
+                {(selected == 'Experience' ? routes : routesProjects).map(
+                  route => (
+                    <motion.li
+                      key={route.id}
+                      variants={listItemsVariants}
+                      transition={{
+                        duration: 0.9,
+                        ease: transition.ease,
+                      }}
+                    >
+                      <NextLink href={route.path}>
+                        <Link
+                          key={`${route.id}_${isMobile}`}
+                          name={route.id}
+                          onHoverStart={handleHoverStart}
+                          onHoverEnd={handleHoverEnd}
+                          custom={{ isMobile, color: theme.text }}
+                          initial="initial"
+                          whileHover="hover"
+                          variants={linkVariants}
+                          transition={transition}
+                        >
+                          <ArrowContainer>
+                            <Arrow fillColor={theme.background} />
+                          </ArrowContainer>
+                          {route.title}
+                          {/* <br/>
+                          <h4 style={{fontSize:'1rem',}}>{selected=='Experience'?`${route.role}`:''}</h4> */}
+                        </Link>
+                      </NextLink>
+                    </motion.li>
+                  ),
+                )}
               </List>
             </Navigation>
             <Footer>
               <FooterText
                 className="link"
                 as="a"
-                href="mailto:info@furrow.studio"
+                href="pandeyrudresh203@gmail.com"
                 onMouseEnter={addCursorBorder}
                 onMouseLeave={removeCursorBorder}
               >
-                info@furrow.studio
+                pandeyrudresh203@gmail.com
               </FooterText>
               <FooterText
                 className="link"
                 as="a"
-                href="tel:+1.902.417.0634"
+                href="tel:+917317545634"
                 onMouseEnter={addCursorBorder}
                 onMouseLeave={removeCursorBorder}
               >
                 7317545634
               </FooterText>
-              <FooterText className="copyright">© Furrow 2020</FooterText>
-              {isMobile && (
-                <Address>
-                  <FooterText>
-                    Chennai<br /> India
-                  </FooterText>
-                </Address>
-              )}
               <SocialMedia />
             </Footer>
           </Container>
@@ -177,18 +234,20 @@ const Menu = () => {
                 initial="show"
                 animate={isHovering ? 'hidden' : 'show'}
               />
-              {routesProjects.map(route => (
-                <Video
-                  key={route.id}
-                  src={`/videos/${route.video}`}
-                  variants={videoVariants}
-                  initial="hidden"
-                  animate={route.id === revealVideo ? 'show' : 'hidden'}
-                  transition={transition}
-                  loop
-                  autoPlay
-                ></Video>
-              ))}
+              {(selected == 'Experience' ? routes : routesProjects).map(
+                route => (
+                  <Video
+                    key={route.id}
+                    src={`/videos/${route.video}`}
+                    variants={videoVariants}
+                    initial="hidden"
+                    animate={route.id === revealVideo ? 'show' : 'hidden'}
+                    transition={transition}
+                    loop
+                    autoPlay
+                  ></Video>
+                ),
+              )}
             </VideoContainer>
           )}
         </Backdrop>
