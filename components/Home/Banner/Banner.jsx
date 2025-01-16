@@ -47,7 +47,7 @@ const Banner = () => {
         ref={canvasRef}
         width={windowSize.width}
         height={windowSize.height}
-        size={120}
+        size={250}
         background={theme.background}
         onMouseEnter={addCursorBorder}
         onMouseLeave={removeCursorBorder}

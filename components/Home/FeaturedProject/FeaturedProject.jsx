@@ -115,7 +115,7 @@ const FeaturedProject = () => {
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
           /> */}
-          <Link href="/resume/ResumeRudresh.pdf" download={true}>
+          <Link href="https://drive.google.com/file/d/18jZgl9cxkF6Z5sHVahsd4_1PtoqWgZ_c/view?usp=share_link" download={true}>
             <div
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
