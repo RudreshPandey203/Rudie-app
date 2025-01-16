@@ -19,13 +19,13 @@ export const Link = styled.a`
   display: inline-block;
   vertical-align: middle;
   width: 41px;
-  height: 41px;  // Adjust height if necessary
+  height: 41px; // Adjust height if necessary
   line-height: 24px;
   color: ${colors.red};
 
   &:nth-of-type(2) {
-    width: 41px;  // Adjust width if necessary
-    height: 41px;  // Adjust height if necessary
+    width: 41px; // Adjust width if necessary
+    height: 41px; // Adjust height if necessary
   }
 
   &:hover svg path {

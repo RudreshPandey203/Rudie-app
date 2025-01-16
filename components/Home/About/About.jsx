@@ -15,21 +15,21 @@ const About = () => {
   const { addCursorBorder, removeCursorBorder } = useCursorStyle();
 
   const handleMouseEnter = React.useCallback(
-    curr => {
+    (curr) => {
       if (curr === selectedItem) return;
 
       addCursorBorder();
     },
-    [selectedItem, addCursorBorder],
+    [selectedItem, addCursorBorder]
   );
 
   const handleMouseLeave = React.useCallback(
-    curr => {
+    (curr) => {
       if (curr === selectedItem) return;
 
       removeCursorBorder();
     },
-    [selectedItem, removeCursorBorder],
+    [selectedItem, removeCursorBorder]
   );
 
   return (
@@ -37,10 +37,12 @@ const About = () => {
       <ContentSection>
         <TextWrapper>
           <h2>
-          My workaholic tendencies often blur the line between dedication and an unhealthy lifestyle.
+            My workaholic tendencies often blur the line between dedication and an unhealthy lifestyle.
           </h2>
           <p>
-            In my recent learning years, I have been exposed to alot of cool things. My hunger to build never lets me rest and I ain't stopping here, still left alot to learn and build. Apart from Dev and coding, I love playing chess, jamming sessions with my guitar and some savouring pizza.
+            In my recent learning years, I have been exposed to a lot of cool things. My hunger to build
+            never lets me rest and I ain't stopping here, still left a lot to learn and build. Apart from
+            Dev and coding, I love playing chess, jamming sessions with my guitar, and some savoring pizza.
           </p>
         </TextWrapper>
         <ServicesWrapper>

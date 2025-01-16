@@ -1,6 +1,5 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
-import NextLink from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useMenuContext } from '../../context/menu';
 import useCursorStyle from '../../hooks/useCursorStyle';
@@ -31,7 +30,6 @@ import {
   VideoContainer,
   VideoReveal,
   Video,
-  Address,
   SocialMedia,
 } from './styles';
 
@@ -99,15 +97,11 @@ const Menu = () => {
 
   const [switched, setSwitched] = React.useState(false);
 
-  const handleSwitch2 = () => {
-    setSwitched(!switched);
-  };
-
-  const [selected, setSelected] = React.useState('Projects');
-
   const handleSwitch = choice => {
     setSelected(choice);
   };
+  const [selected, setSelected] = React.useState('Projects');
+
   return (
     <AnimatePresence onExitComplete={handleExitComplete}>
       {isMenuOpen && (
@@ -136,7 +130,9 @@ const Menu = () => {
                   animate={selected === 'Projects' ? 'expanded' : 'initial'}
                   variants={textVariants}
                   transition={{ duration: 0.5 }}
-                  {...(selected === 'Experience' ? { onMouseEnter: addCursorBorder, onMouseLeave: removeCursorBorder } : {})}
+                  {...(selected === 'Experience'
+                    ? { onMouseEnter: addCursorBorder, onMouseLeave: removeCursorBorder }
+                    : {})}
                 >
                   Projects
                 </motion.h3>
@@ -154,7 +150,9 @@ const Menu = () => {
                   animate={selected === 'Experience' ? 'expanded' : 'initial'}
                   variants={textVariants}
                   transition={{ duration: 0.5 }}
-                  {...(selected === 'Projects' ? { onMouseEnter: addCursorBorder, onMouseLeave: removeCursorBorder } : {})}
+                  {...(selected === 'Projects'
+                    ? { onMouseEnter: addCursorBorder, onMouseLeave: removeCursorBorder }
+                    : {})}
                 >
                   Experience
                 </motion.h3>
@@ -169,40 +167,35 @@ const Menu = () => {
                 onHoverStart={() => setIsHovering(true)}
                 onHoverEnd={() => setIsHovering(false)}
               >
-                {(selected == 'Experience' ? routes : routesProjects).map(
-                  route => (
-                    <motion.li
-                      key={route.id}
-                      variants={listItemsVariants}
-                      transition={{
-                        duration: 0.9,
-                        ease: transition.ease,
-                      }}
-                    >
-                      <Link href={route.path}>
-                        
-                        <Link
-                          key={`${route.id}_${isMobile}`}
-                          name={route.id}
-                          onHoverStart={handleHoverStart}
-                          onHoverEnd={handleHoverEnd}
-                          custom={{ isMobile, color: theme.text }}
-                          initial="initial"
-                          whileHover="hover"
-                          variants={linkVariants}
-                          transition={transition}
-                        >
-                          <ArrowContainer>
-                            <Arrow fillColor={theme.background} />
-                          </ArrowContainer>
-                          {route.title}
-                          {/* <br/>
-                          <h4 style={{fontSize:'1rem',}}>{selected=='Experience'?`${route.role}`:''}</h4> */}
-                        </Link>
+                {(selected == 'Experience' ? routes : routesProjects).map(route => (
+                  <motion.li
+                    key={route.id}
+                    variants={listItemsVariants}
+                    transition={{
+                      duration: 0.9,
+                      ease: transition.ease,
+                    }}
+                  >
+                    <Link href={route.path}>
+                      <Link
+                        key={`${route.id}_${isMobile}`}
+                        name={route.id}
+                        onHoverStart={handleHoverStart}
+                        onHoverEnd={handleHoverEnd}
+                        custom={{ isMobile, color: theme.text }}
+                        initial="initial"
+                        whileHover="hover"
+                        variants={linkVariants}
+                        transition={transition}
+                      >
+                        <ArrowContainer>
+                          <Arrow fillColor={theme.background} />
+                        </ArrowContainer>
+                        {route.title}
                       </Link>
-                    </motion.li>
-                  ),
-                )}
+                    </Link>
+                  </motion.li>
+                ))}
               </List>
             </Navigation>
             <Footer>
@@ -235,20 +228,18 @@ const Menu = () => {
                 initial="show"
                 animate={isHovering ? 'hidden' : 'show'}
               />
-              {(selected == 'Experience' ? routes : routesProjects).map(
-                route => (
-                  <Video
-                    key={route.id}
-                    src={`/videos/${route.video}`}
-                    variants={videoVariants}
-                    initial="hidden"
-                    animate={route.id === revealVideo ? 'show' : 'hidden'}
-                    transition={transition}
-                    loop
-                    autoPlay
-                  ></Video>
-                ),
-              )}
+              {(selected == 'Experience' ? routes : routesProjects).map(route => (
+                <Video
+                  key={route.id}
+                  src={`/videos/${route.video}`}
+                  variants={videoVariants}
+                  initial="hidden"
+                  animate={route.id === revealVideo ? 'show' : 'hidden'}
+                  transition={transition}
+                  loop
+                  autoPlay
+                ></Video>
+              ))}
             </VideoContainer>
           )}
         </Backdrop>

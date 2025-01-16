@@ -7,9 +7,10 @@ const Content = () => {
     <AnimateOnScreen>
       <ContentSection>
         <TextWrapper>
-        <Text>
+          <Text>
             Coding is a craft.
-            <br /><br/>
+            <br />
+            <br />
             I started with Java, did a lot of Web Dev, built models, curated AI tools, and right now striving to get better at DSA.
           </Text>
         </TextWrapper>

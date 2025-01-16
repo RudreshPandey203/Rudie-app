@@ -17,12 +17,15 @@ const Contact = () => {
             onMouseEnter={addCursorBorder}
             onMouseLeave={removeCursorBorder}
           >
-            pandeyrudresh203<br/>
+            pandeyrudresh203
+            <br />
             @gmail.com
           </a>
         </div>
         <address className="column contact-text">
-          Banglore<br /> India
+          Banglore
+          <br />
+          India
         </address>
         <SocialMedia className="column" />
       </ContactSection>

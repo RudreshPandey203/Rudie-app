@@ -1,8 +1,6 @@
 import React from 'react';
-import Link from 'next/link';
-import Logo from '../Icons/Logo';
 import MenuButton from '../MenuButton';
-import { Slider, Container, StyledLink, MenuWrapper } from './styles';
+import { Slider, Container, MenuWrapper } from './styles';
 
 const getStyles = (direction = '') => {
   if (direction === 'down') return { top: 0 };
@@ -20,7 +18,7 @@ const AppBar = props => {
   const {
     direction = 'down',
     offset = 105,
-    logoProps = {},
+    // logoProps = {},
     style: styleProp = {},
     ...rootProps
   } = props;

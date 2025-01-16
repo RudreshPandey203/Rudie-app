@@ -14,7 +14,6 @@ import {
   ProjectTitle,
   VideoPreview,
   MenuContainer,
-  MenuButton,
 } from './styles';
 import colors from '../../../styles/colors';
 import { FaDownload } from 'react-icons/fa6';
@@ -36,7 +35,7 @@ const FeaturedProject = () => {
     removeCursorBorder,
   } = useCursorStyle();
   const isTabletView = useMediaQuery(
-    ({ breakpoints }) => `(max-width:${breakpoints.sizes.tablet}px)`,
+    ({ breakpoints }) => `(max-width:${breakpoints.sizes.tablet}px)`
   );
 
   const handleMouseEnter = React.useCallback(() => {
@@ -69,7 +68,6 @@ const FeaturedProject = () => {
 
   React.useEffect(() => {
     // animate arrow programmatically because initial prop was not working properly.
-    // I probably did something wrong :P
     controlsArrow.start({ x: isTabletView ? -25.19 : -33 });
   }, [controlsArrow, isTabletView]);
 
@@ -79,8 +77,8 @@ const FeaturedProject = () => {
         <motion.div>
           <Link href="/projects/not-humble" passHref>
             <ProjectAnchor
-              onHoverStart={handleAnchorHoverStart}
-              onHoverEnd={handleAnchorHoverEnd}
+              onMouseEnter={handleAnchorHoverStart}
+              onMouseLeave={handleAnchorHoverEnd}
             >
               <ProjectInfo>
                 <h3>am brewing now?</h3>
@@ -109,16 +107,13 @@ const FeaturedProject = () => {
       </AnimateOnScreen>
       <AnimateOnScreen>
         <MenuContainer>
-          {/* <MenuButton
-            sticky={false}
-            title="My Works"
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
-          /> */}
-          <Link href="https://drive.google.com/file/d/18jZgl9cxkF6Z5sHVahsd4_1PtoqWgZ_c/view?usp=share_link" download={true}>
+          <Link
+            href="https://drive.google.com/file/d/18jZgl9cxkF6Z5sHVahsd4_1PtoqWgZ_c/view?usp=share_link"
+            download={true}
+          >
             <div
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
               style={{
                 padding: '15px',
                 backgroundColor: `${colors.red}`,
@@ -136,13 +131,13 @@ const FeaturedProject = () => {
                   alignItems: 'center',
                   fontStyle: 'normal',
                   lineHeight: '0.6',
-                  position:'relative',
-                  top:'5px',
+                  position: 'relative',
+                  top: '5px',
                   color: `${colors.white}`,
                   paddingRight: '10px',
                 }}
               >
-                Resume  
+                Resume
               </h4>
               <FaDownload style={{ fontSize: '1.5rem' }} />
             </div>
